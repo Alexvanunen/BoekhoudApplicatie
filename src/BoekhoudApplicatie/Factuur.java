@@ -51,6 +51,7 @@ public class Factuur {
         return btwBedrag;
     }
 
+
     //Methode berekenBtwBedrag
     public double berekenBtwBedrag(double factuurBedrag) {
         if(btwCode == 0){
@@ -64,7 +65,19 @@ public class Factuur {
         }
         return btwBedrag;
     }
-
+    public boolean checkBedragExcl(double factuurBedrag, int btwCode, double btwBedrag){
+        if(btwCode == 1) {
+            if ((factuurBedrag / 109) * 9 == btwBedrag) {
+                return true;
+            }
+        }
+        if(btwCode == 2) {
+            if ((factuurBedrag / 121) * 21 == btwBedrag) {
+                return true;
+            }
+        }
+        return false;
+    }
     @Override
     public String toString() {
         return "Factuur{" +
