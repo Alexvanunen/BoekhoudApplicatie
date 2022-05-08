@@ -11,8 +11,9 @@ public class Factuur {
     private int btwCode;
     private double btwBedrag;
     Administratie administratie;
+    private boolean isBetaald;
 
-    public Factuur(int factuurNummer, String factuurOmschrijving, double factuurBedrag, String factuurDatum, boolean debet, int btwCode, double btwBedrag, Administratie administratie) {
+    public Factuur(int factuurNummer, String factuurOmschrijving, double factuurBedrag, String factuurDatum, boolean debet, int btwCode, double btwBedrag, Administratie administratie, boolean isBetaald) {
         this.factuurNummer = factuurNummer;
         this.factuurOmschrijving = factuurOmschrijving;
         this.factuurBedrag = factuurBedrag;
@@ -21,6 +22,7 @@ public class Factuur {
         this.btwCode = btwCode;
         this.btwBedrag = btwBedrag;
         this.administratie = administratie;
+        this.isBetaald = isBetaald;
     }
 
     public int getFactuurNummer() {
@@ -51,6 +53,9 @@ public class Factuur {
         return btwBedrag;
     }
 
+    public boolean getIsBetaald() {
+        return isBetaald;
+    }
 
     //Methode berekenBtwBedrag
     public double berekenBtwBedrag(double factuurBedrag) {
@@ -65,19 +70,16 @@ public class Factuur {
         }
         return btwBedrag;
     }
-    public boolean checkBedragExcl(double factuurBedrag, int btwCode, double btwBedrag){
-        if(btwCode == 1) {
-            if ((factuurBedrag / 109) * 9 == btwBedrag) {
-                return true;
-            }
+    public boolean checkBedragExcl(double factuurBedrag, int btwCode, double btwBedrag, boolean isBetaald){
+        if(btwCode == 1 && (((factuurBedrag / 109) * 9 == btwBedrag) && isBetaald)) {
+            return true;
         }
-        if(btwCode == 2) {
-            if ((factuurBedrag / 121) * 21 == btwBedrag) {
-                return true;
-            }
+        else if(btwCode == 2 && ((factuurBedrag / 121) * 21 == btwBedrag && isBetaald)) {
+            return true;
         }
         return false;
     }
+
     @Override
     public String toString() {
         return "Factuur{" +
