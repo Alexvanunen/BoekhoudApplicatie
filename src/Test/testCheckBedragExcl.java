@@ -25,21 +25,21 @@ public class testCheckBedragExcl {
         // actualResult 3 Btw Null = True
         //assertTrue(actualResult3);
 
-        // Testen voor coverage met Btw-percentage Hoog
-        Factuur factuur4 = new Factuur(4, "Auto4", 12100.0, "02-04-2022", false, 0, 0, administratie, true);
-        Factuur factuur5 = new Factuur(5, "Auto5", 12100.0, "02-04-2022", false, 0, 2100, administratie, false);
-        Factuur factuur6 = new Factuur(6, "Auto6", 12100.0, "02-04-2022", false, 2, 0, administratie, false);
+        // Testen met MC/DC met BTW Percentage Hoog
+        Factuur factuur4 = new Factuur(4, "Auto4", 12100.0, "02-04-2022", false, 0, 2100, administratie, true);
+        Factuur factuur5 = new Factuur(5, "Auto5", 12100.0, "02-04-2022", false, 2, 0, administratie, true);
+        Factuur factuur6 = new Factuur(6, "Auto6", 12100.0, "02-04-2022", false, 2, 2100, administratie, false);
         Factuur factuur7 = new Factuur(7, "Auto6", 12100.0, "02-04-2022", false, 2, 2100, administratie, true);
         boolean actualResult4 = factuur4.checkBedragExcl(factuur4.getFactuurBedrag(),factuur4.getBtwCode(),factuur4.getBtwBedrag(), factuur4.getIsBetaald());
         boolean actualResult5 = factuur5.checkBedragExcl(factuur5.getFactuurBedrag(),factuur5.getBtwCode(),factuur5.getBtwBedrag(), factuur5.getIsBetaald());
         boolean actualResult6 = factuur6.checkBedragExcl(factuur6.getFactuurBedrag(),factuur6.getBtwCode(),factuur6.getBtwBedrag(), factuur6.getIsBetaald());
         boolean actualResult7 = factuur7.checkBedragExcl(factuur7.getFactuurBedrag(),factuur7.getBtwCode(),factuur7.getBtwBedrag(), factuur7.getIsBetaald());
 
-        // Btw Code 0 (Fout) && btw-bedrag (Fout) && Betaald (Goed)
+        // Btw Code 0 (Fout) && btw-bedrag (Goed) && Betaald (Goed)
         assertFalse(actualResult4);
-        // Btw Code 0 (Fout) && btw-bedrag (Goed) && Betaald (Fout)
+        // Btw Code 0 (Goed) && btw-bedrag (Fout) && Betaald (Goed)
         assertFalse(actualResult5);
-        // Btw Code 2 (Goed) && btw-bedrag (Fout) && (Fout)
+        // Btw Code 2 (Goed) && btw-bedrag (Goed) && (Fout)
         assertFalse(actualResult6);
         // Btw Code 2 (Goed) && btw-bedrag (Goed) && (Goed)
         assertTrue(actualResult7);
