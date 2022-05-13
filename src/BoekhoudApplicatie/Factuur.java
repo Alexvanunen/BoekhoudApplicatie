@@ -79,7 +79,18 @@ public class Factuur {
         }
         return false;
     }
-
+    public String checkFactuurBedrag(double factuurBedrag){
+        // Factuurbedrag is 0 tot 100 euro (laag)
+        if (factuurBedrag == 0 || factuurBedrag > 0 && factuurBedrag < 100){
+            return "Factuurbedrag is laag";
+        }
+        // Factuurbedrag is 100 tot 1000 euro (gemiddeld)
+        else if (factuurBedrag >= 100 && factuurBedrag < 1000){
+            return "Factuurbedrag is gemiddeld";
+        }
+        // Factuurbedrag is 1000 euro of groter (hoog)
+        return "Factuurbedrag is hoog";
+    }
     @Override
     public String toString() {
         return "Factuur{" +
