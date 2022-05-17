@@ -13,8 +13,8 @@ class testBtwBerekenen {
     void TestBtwBerekenen() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
         Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
-        Factuur factuur1 = new Factuur(1, "Auto", 12100.0, "02-04-2022", false, 2, 2100, administratie, true);
-        Factuur factuur2 = new Factuur(2, "Auto2", 10900.0, "02-04-2022", false, 1, 900, administratie, true);
+        Factuur factuur1 = new Factuur(1, "Auto", 12100.0, "02-04-2022", false, 2, 2100, administratie, true, 14, true, 30);
+        Factuur factuur2 = new Factuur(2, "Auto2", 10900.0, "02-04-2022", false, 1, 900, administratie, true, 14, true, 30);
         // Expected
         double expectedResult1 = 2100.0;
         double expectedResult2 = 900.0;

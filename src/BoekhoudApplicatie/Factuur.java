@@ -12,8 +12,11 @@ public class Factuur {
     private double btwBedrag;
     Administratie administratie;
     private boolean isBetaald;
+    private int betalingsTermijn;
+    private boolean nieuweKlant;
+    private int leeftijdKlant;
 
-    public Factuur(int factuurNummer, String factuurOmschrijving, double factuurBedrag, String factuurDatum, boolean debet, int btwCode, double btwBedrag, Administratie administratie, boolean isBetaald) {
+    public Factuur(int factuurNummer, String factuurOmschrijving, double factuurBedrag, String factuurDatum, boolean debet, int btwCode, double btwBedrag, Administratie administratie, boolean isBetaald, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant) {
         this.factuurNummer = factuurNummer;
         this.factuurOmschrijving = factuurOmschrijving;
         this.factuurBedrag = factuurBedrag;
@@ -23,6 +26,9 @@ public class Factuur {
         this.btwBedrag = btwBedrag;
         this.administratie = administratie;
         this.isBetaald = isBetaald;
+        this.betalingsTermijn = betalingsTermijn;
+        this.nieuweKlant = nieuweKlant;
+        this.leeftijdKlant = leeftijdKlant;
     }
 
     public int getFactuurNummer() {
@@ -55,6 +61,18 @@ public class Factuur {
 
     public boolean getIsBetaald() {
         return isBetaald;
+    }
+
+    public int getBetalingsTermijn() {
+        return betalingsTermijn;
+    }
+
+    public boolean getNieuweKlant() {
+        return nieuweKlant;
+    }
+
+    public int getLeeftijdKlant() {
+        return leeftijdKlant;
     }
 
     //Methode berekenBtwBedrag
@@ -90,6 +108,39 @@ public class Factuur {
         }
         // Factuurbedrag is 1000 euro of groter (hoog)
         return "Factuurbedrag is hoog";
+    }
+    public String checkBetalingsKorting(double factuurBedrag, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant){
+        //    Factuurbedrag laag = 0 % korting
+        //    Factuurbedrag middel = 3% korting
+        //    Factuurbedrag hoog = 5% korting
+        //    Betalingstermijn true = 5% korting
+        //    Nieuwe klant = 4% korting
+        //    Klant 65+ = 2% korting
+        //    Factuurbedrag laag = 0 % korting
+        //    Factuurbedrag middel = 3% korting
+        //    Factuurbedrag hoog = 5% korting
+        //    Betalingstermijn true = 5% korting
+        //    Nieuwe klant = 4% korting
+        //    Klant 65+ = 2% korting
+        if (factuurBedrag >= 0 && factuurBedrag <= 100 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant >= 65){
+            return "11% betalingskorting";
+        }
+        if (factuurBedrag >= 0 && factuurBedrag < 100 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant < 65){
+            return "0% betalingskorting";
+        }
+        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn == 14 && !nieuweKlant && leeftijdKlant < 65){
+            return "8% betalingskorting";
+        }
+        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn != 14 && nieuweKlant && leeftijdKlant >= 65){
+            return "9% betalingskorting";
+        }
+        if (factuurBedrag >= 1000 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant < 65){
+            return "14% betalingskorting";
+        }
+        if (factuurBedrag >= 1000 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant >= 65){
+            return "7% betalingskorting";
+        }
+        return "Geen betalingskorting";
     }
     @Override
     public String toString() {

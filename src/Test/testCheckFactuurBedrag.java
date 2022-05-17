@@ -10,8 +10,8 @@ public class testCheckFactuurBedrag {
     void testCheckFactuurBedragLaag() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
         Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
-        Factuur factuur1 = new Factuur(1, "Auto", 0, "02-04-2022", false, 0, 0, administratie, true);
-        Factuur factuur2 = new Factuur(2, "Auto", 99, "02-04-2022", false, 0, 0, administratie, true);
+        Factuur factuur1 = new Factuur(1, "Auto", 0, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30);
+        Factuur factuur2 = new Factuur(2, "Auto", 99, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30);
         String expectedResult1 = "Factuurbedrag is laag";
         String actualResult1 = factuur1.checkFactuurBedrag(factuur1.getFactuurBedrag());
         String expectedResult2 = "Factuurbedrag is laag";
@@ -23,9 +23,9 @@ public class testCheckFactuurBedrag {
     void testCheckFactuurBedragGemiddeld() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
         Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
-        Factuur factuur3 = new Factuur(3, "Auto", 100, "02-04-2022", false, 0, 0, administratie, true);
-        Factuur factuur4 = new Factuur(4, "Auto", 101, "02-04-2022", false, 0, 0, administratie, true);
-        Factuur factuur6 = new Factuur(5, "Auto", 999, "02-04-2022", false, 0, 0, administratie, true);
+        Factuur factuur3 = new Factuur(3, "Auto", 100, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30);
+        Factuur factuur4 = new Factuur(4, "Auto", 101, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30);
+        Factuur factuur6 = new Factuur(5, "Auto", 999, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30);
         String expectedResult3 = "Factuurbedrag is gemiddeld";
         String actualResult3 = factuur3.checkFactuurBedrag(factuur3.getFactuurBedrag());
         String expectedResult4 = "Factuurbedrag is gemiddeld";
@@ -40,8 +40,8 @@ public class testCheckFactuurBedrag {
     void testCheckFactuurBedragHoog() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
         Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
-        Factuur factuur6 = new Factuur(6, "Auto", 1000, "02-04-2022", false, 0, 0, administratie, true);
-        Factuur factuur7 = new Factuur(7, "Auto", 1001, "02-04-2022", false, 0, 0, administratie, true);
+        Factuur factuur6 = new Factuur(6, "Auto", 1000, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30);
+        Factuur factuur7 = new Factuur(7, "Auto", 1001, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30);
         String expectedResult6 = "Factuurbedrag is hoog";
         String actualResult6 = factuur6.checkFactuurBedrag(factuur6.getFactuurBedrag());
         String expectedResult7 = "Factuurbedrag is hoog";
