@@ -3,7 +3,7 @@ package BoekhoudApplicatie;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class FacturenLijst {
+public abstract class FacturenLijst {
     private ArrayList<Factuur> facturenLijst = new ArrayList<Factuur>();
     private Date periode;
 
@@ -11,10 +11,15 @@ public class FacturenLijst {
         this.facturenLijst = facturenLijst;
         this.periode = periode;
     }
-
     public ArrayList<Factuur> getFacturenLijst() {
         return facturenLijst;
     }
+
+    public void Overzicht(ArrayList<Factuur> facturenLijst, Date periode){
+        printOverzicht();
+    }
+
+    public abstract void printOverzicht();
 
     public Date getPeriode() {
         return periode;

@@ -3,11 +3,14 @@ package BoekhoudApplicatie;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class WinstEnVerlies extends FacturenLijst{
-    private Date kwartaal;
+public class WinstEnVerlies extends FacturenLijst {
 
-    public WinstEnVerlies(ArrayList<Factuur> facturenLijst, Date periode, Date kwartaal) {
+    public WinstEnVerlies(ArrayList<Factuur> facturenLijst, Date periode) {
         super(facturenLijst, periode);
-        this.kwartaal = kwartaal;
+    }
+
+    @Override
+    public void printOverzicht() {
+        System.out.println("Hoi");
     }
 }

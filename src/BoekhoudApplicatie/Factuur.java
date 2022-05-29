@@ -142,17 +142,4 @@ public class Factuur {
         }
         return "Geen betalingskorting";
     }
-    @Override
-    public String toString() {
-        return "Factuur{" +
-                "factuurNummer=" + factuurNummer +
-                ", factuurOmschrijving='" + factuurOmschrijving + '\'' +
-                ", factuurBedrag=" + factuurBedrag +
-                ", factuurDatum='" + factuurDatum + '\'' +
-                ", debet=" + debet +
-                ", btwCode=" + btwCode +
-                ", btwBedrag=" + btwBedrag +
-                ", administratie=" + administratie +
-                '}';
-    }
 }

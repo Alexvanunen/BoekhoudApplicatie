@@ -17,12 +17,4 @@ public class Administratie extends Bedrijf{
     public ArrayList<Factuur> getFacturenLijst() {
         return facturenLijst;
     }
-
-    @Override
-    public String toString() {
-        return "Administratie{" +
-                "relatieLijst=" + relatieLijst +
-                ", facturenLijst=" + facturenLijst +
-                '}';
-    }
 }
