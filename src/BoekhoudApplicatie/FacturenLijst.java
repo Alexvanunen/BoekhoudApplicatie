@@ -24,7 +24,6 @@ public abstract class FacturenLijst {
     public Date getPeriode() {
         return periode;
     }
-
     public void setPeriode(Date periode) {
         this.periode = periode;
     }

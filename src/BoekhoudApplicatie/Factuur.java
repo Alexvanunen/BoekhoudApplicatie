@@ -15,8 +15,9 @@ public class Factuur {
     private int betalingsTermijn;
     private boolean nieuweKlant;
     private int leeftijdKlant;
+    private final String belastingType;
 
-    public Factuur(int factuurNummer, String factuurOmschrijving, double factuurBedrag, String factuurDatum, boolean debet, int btwCode, double btwBedrag, Administratie administratie, boolean isBetaald, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant) {
+    public Factuur(int factuurNummer, String factuurOmschrijving, double factuurBedrag, String factuurDatum, boolean debet, int btwCode, double btwBedrag, Administratie administratie, boolean isBetaald, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant, String belastingType) {
         this.factuurNummer = factuurNummer;
         this.factuurOmschrijving = factuurOmschrijving;
         this.factuurBedrag = factuurBedrag;
@@ -29,6 +30,7 @@ public class Factuur {
         this.betalingsTermijn = betalingsTermijn;
         this.nieuweKlant = nieuweKlant;
         this.leeftijdKlant = leeftijdKlant;
+        this.belastingType = Belasting.getInstance().getBelastingType();
     }
 
     public int getFactuurNummer() {
@@ -73,6 +75,10 @@ public class Factuur {
 
     public int getLeeftijdKlant() {
         return leeftijdKlant;
+    }
+
+    public String getBelastingType() {
+        return belastingType;
     }
 
     //Methode berekenBtwBedrag
