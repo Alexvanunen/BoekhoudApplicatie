@@ -26,7 +26,4 @@ public class FactuurRegel {
     public double getPrijs() {
         return prijs;
     }
-    public Factuur getFactuur() {
-        return factuur;
-    }
 }
