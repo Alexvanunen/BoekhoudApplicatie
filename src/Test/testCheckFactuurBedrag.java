@@ -9,7 +9,7 @@ public class testCheckFactuurBedrag {
     @org.junit.jupiter.api.Test
     void testCheckFactuurBedragLaag() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         Factuur factuur1 = new Factuur(1, "Auto", 0, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30, "OmzetBelasting");
         Factuur factuur2 = new Factuur(2, "Auto", 99, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30, "OmzetBelasting");
         String expectedResult1 = "Factuurbedrag is laag";
@@ -22,7 +22,7 @@ public class testCheckFactuurBedrag {
     @org.junit.jupiter.api.Test
     void testCheckFactuurBedragGemiddeld() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         Factuur factuur3 = new Factuur(3, "Auto", 100, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30, "OmzetBelasting");
         Factuur factuur4 = new Factuur(4, "Auto", 101, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30, "OmzetBelasting");
         Factuur factuur6 = new Factuur(5, "Auto", 999, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30, "OmzetBelasting");
@@ -39,7 +39,7 @@ public class testCheckFactuurBedrag {
     @org.junit.jupiter.api.Test
     void testCheckFactuurBedragHoog() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         Factuur factuur6 = new Factuur(6, "Auto", 1000, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30, "OmzetBelasting");
         Factuur factuur7 = new Factuur(7, "Auto", 1001, "02-04-2022", false, 0, 0, administratie, true, 14, true, 30, "OmzetBelasting");
         String expectedResult6 = "Factuurbedrag is hoog";

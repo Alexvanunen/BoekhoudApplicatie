@@ -3,18 +3,14 @@ package BoekhoudApplicatie;
 import java.util.ArrayList;
 
 public class Administratie extends Bedrijf{
-    ArrayList<Relatie> relatieLijst = new ArrayList<Relatie>();
-    ArrayList<Factuur> facturenLijst = new ArrayList<Factuur>();
+    private final int administratieNummer;
 
-    public Administratie(String bedrijfsNaam, String kvkNummer, String btwNummer, int bedrijfsNummer) {
+    public Administratie(String bedrijfsNaam, String kvkNummer, String btwNummer, int bedrijfsNummer, int administratieNummer) {
         super(bedrijfsNaam, kvkNummer, btwNummer, bedrijfsNummer);
+        this.administratieNummer = administratieNummer;
     }
 
-    public ArrayList<Relatie> getRelatieLijst() {
-        return relatieLijst;
-    }
-
-    public ArrayList<Factuur> getFacturenLijst() {
-        return facturenLijst;
+    public int getAdministratieNummer() {
+        return administratieNummer;
     }
 }

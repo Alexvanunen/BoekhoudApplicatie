@@ -11,7 +11,7 @@ public class testCheckBedragExcl {
     // Condition Coverage Test
     void ConditionCoverageTestCheckBedragExcl() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         // 0 0 0
         Factuur factuur1 = new Factuur(1, "Auto1", 12100.0, "02-04-2022", false, 0, 0, administratie, false, 14, true, 30, "OmzetBelasting");
         // 1 1 1
@@ -25,7 +25,7 @@ public class testCheckBedragExcl {
     // Decision Coverage Test
     void DecisionCoverageTestCheckBedragExcl() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         // 0 0 0
         Factuur factuur3 = new Factuur(3, "Auto3", 12100.0, "02-04-2022", false, 0, 0, administratie, false, 14, true, 30, "OmzetBelasting");
         // 1 1 1
@@ -39,7 +39,7 @@ public class testCheckBedragExcl {
     // Condition/Decision Coverage Test
     void CDCoverageTestCheckBedragExcl() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         // 0 0 0
         Factuur factuur5 = new Factuur(5, "Auto5", 12100.0, "02-04-2022", false, 0, 0, administratie, false, 14, true, 30, "OmzetBelasting");
         // 1 1 1
@@ -54,7 +54,7 @@ public class testCheckBedragExcl {
     // Modified Condition Coverage Test
     void ModifiedConditionTestCheckBedragExcl() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         // 0 1 1
         Factuur factuur7 = new Factuur(7, "Auto7", 12100.0, "02-04-2022", false, 0, 2100, administratie, true, 14, true,30, "OmzetBelasting");
         // 1 0 1
@@ -76,7 +76,7 @@ public class testCheckBedragExcl {
     // Multiple Condition Coverage
     void MultipleConditionTestCheckBedragExcl() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         // 0 0 0
         Factuur factuur11 = new Factuur(11, "Auto11", 12100.0, "02-04-2022", false, 0, 0, administratie, false, 14, true, 30, "OmzetBelasting");
         // 0 0 1

@@ -1,7 +1,5 @@
 package BoekhoudApplicatie;
 
-import java.util.Date;
-
 public class Factuur {
     private int factuurNummer;
     private String factuurOmschrijving;
@@ -15,7 +13,7 @@ public class Factuur {
     private int betalingsTermijn;
     private boolean nieuweKlant;
     private int leeftijdKlant;
-    private final String belastingType;
+    private String belastingType;
 
     public Factuur(int factuurNummer, String factuurOmschrijving, double factuurBedrag, String factuurDatum, boolean debet, int btwCode, double btwBedrag, Administratie administratie, boolean isBetaald, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant, String belastingType) {
         this.factuurNummer = factuurNummer;
@@ -147,5 +145,22 @@ public class Factuur {
             return "7% betalingskorting";
         }
         return "Geen betalingskorting";
+    }
+
+    @Override
+    public String toString() {
+        return  "factuurNummer = " + factuurNummer +
+                ", factuurOmschrijving = '" + factuurOmschrijving + '\'' +
+                ", factuurBedrag = " + factuurBedrag +
+                ", factuurDatum = '" + factuurDatum + '\'' +
+                ", debet = " + debet +
+                ", btwCode = " + btwCode +
+                ", btwBedrag = " + btwBedrag +
+                ", isBetaald = " + isBetaald +
+                ", betalingsTermijn = " + betalingsTermijn +
+                ", nieuweKlant = " + nieuweKlant +
+                ", leeftijdKlant = " + leeftijdKlant +
+                ", belastingType = '" + belastingType + '\'' +
+                '}';
     }
 }

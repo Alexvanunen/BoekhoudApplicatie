@@ -11,7 +11,7 @@ public class testBetalingsKorting {
     @org.junit.jupiter.api.Test
     void testBetalingsKorting() {
         Relatie relatie = new Relatie("AH", "11", "22", 1, 1);
-        Administratie administratie = new Administratie("Miniwars", "111", "222", 2);
+        Administratie administratie = new Administratie("Miniwars", "111", "222", 2, 1);
         // 1 1 1 1
         Factuur factuur1 = new Factuur(1, "Auto1", 50, "02-04-2022", false, 0, 0, administratie, false, 14, true, 65, "OmzetBelasting");
         // 1 0 0 0
