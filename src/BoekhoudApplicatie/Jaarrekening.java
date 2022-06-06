@@ -10,7 +10,7 @@ public class Jaarrekening extends FacturenLijst {
     @Override
     public void printOverzicht() {
         for (Factuur s : getFacturenLijst()) {
-            System.out.println(s.getFactuurNummer());
+            System.out.println(s.toString());
         }
     }
 }

@@ -3,8 +3,6 @@ import BoekhoudApplicatie.Factuur;
 import BoekhoudApplicatie.Administratie;
 import BoekhoudApplicatie.Relatie;
 
-import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class testBtwBerekenen {
