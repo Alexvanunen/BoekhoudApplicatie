@@ -12,10 +12,10 @@ public abstract class FacturenLijst {
     public ArrayList<Factuur> getFacturenLijst() {
         return facturenLijst;
     }
-
+    // Template Method roept printOverzicht() aan.
     public void Overzicht() {
         printOverzicht();
     }
-
-    public abstract void printOverzicht();
+    // Methode printOverzicht() wordt gedeclareerd en wordt override in de subclasses.
+    public void printOverzicht() {}
 }

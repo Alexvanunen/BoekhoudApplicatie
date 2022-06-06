@@ -2,14 +2,15 @@ package BoekhoudApplicatie;
 
 import java.util.ArrayList;
 
-public class Jaarrekening extends FacturenLijst {
+public class WinstEnVerlies extends FacturenLijst {
 
-    public Jaarrekening(ArrayList<Factuur> facturenLijst) {
+    public WinstEnVerlies(ArrayList<Factuur> facturenLijst) {
         super(facturenLijst);
     }
+    // Methode uit parent wordt ge-override
     @Override
     public void printOverzicht() {
-        for (Factuur s : getFacturenLijst()) {
+        for(Factuur s: getFacturenLijst()){
             System.out.println(s.toString());
         }
     }
