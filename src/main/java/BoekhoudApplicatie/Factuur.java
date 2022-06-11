@@ -101,7 +101,7 @@ public class Factuur {
         }
         return false;
     }
-    public String checkFactuurBedrag(double factuurBedrag){
+    public String checkFactuurBedrag(){
         // Factuurbedrag is 0 tot 100 euro (laag)
         if (factuurBedrag == 0 || factuurBedrag > 0 && factuurBedrag < 100){
             return "Factuurbedrag is laag";

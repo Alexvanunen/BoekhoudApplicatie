@@ -17,5 +17,5 @@ public abstract class FacturenLijst {
         printOverzicht();
     }
     // Methode printOverzicht() wordt gedeclareerd en wordt override in de subclasses.
-    public void printOverzicht() {}
+    public abstract void printOverzicht();
 }
