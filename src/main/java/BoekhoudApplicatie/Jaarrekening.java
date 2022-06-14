@@ -10,8 +10,10 @@ public class Jaarrekening extends FacturenLijst {
     // Methode uit parent wordt ge-override
     @Override
     public void printOverzicht() {
-        for (Factuur s : getFacturenLijst()) {
-            System.out.println(s.toString());
-        }
+        ArrayList<Factuur> x = new ArrayList<Factuur>();
+        x.addAll(getFacturenLijst());
+        String beginDatum = "";
+        String eindDatum = "";
+        System.out.println(x.get(0));
     }
 }

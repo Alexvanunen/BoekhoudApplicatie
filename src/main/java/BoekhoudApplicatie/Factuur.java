@@ -1,5 +1,7 @@
 package BoekhoudApplicatie;
 
+import java.util.Date;
+
 public class Factuur {
     private int factuurNummer;
     private String factuurOmschrijving;
@@ -79,6 +81,58 @@ public class Factuur {
         return belastingType;
     }
 
+    public void setFactuurNummer(int factuurNummer) {
+        this.factuurNummer = factuurNummer;
+    }
+
+    public void setFactuurOmschrijving(String factuurOmschrijving) {
+        this.factuurOmschrijving = factuurOmschrijving;
+    }
+
+    public void setFactuurBedrag(double factuurBedrag) {
+        this.factuurBedrag = factuurBedrag;
+    }
+
+    public void setFactuurDatum(String factuurDatum) {
+        this.factuurDatum = factuurDatum;
+    }
+
+    public void setDebet(boolean debet) {
+        this.debet = debet;
+    }
+
+    public void setBtwCode(int btwCode) {
+        this.btwCode = btwCode;
+    }
+
+    public void setBtwBedrag(double btwBedrag) {
+        this.btwBedrag = btwBedrag;
+    }
+
+    public void setAdministratie(Administratie administratie) {
+        this.administratie = administratie;
+    }
+
+    public void setBetaald(boolean betaald) {
+        isBetaald = betaald;
+    }
+
+    public void setBetalingsTermijn(int betalingsTermijn) {
+        this.betalingsTermijn = betalingsTermijn;
+    }
+
+    public void setNieuweKlant(boolean nieuweKlant) {
+        this.nieuweKlant = nieuweKlant;
+    }
+
+    public void setLeeftijdKlant(int leeftijdKlant) {
+        this.leeftijdKlant = leeftijdKlant;
+    }
+
+    public void setBelastingType(String belastingType) {
+        this.belastingType = belastingType;
+    }
+
     //Methode berekenBtwBedrag
     public double berekenBtwBedrag(double factuurBedrag) {
         if(btwCode == 0){
@@ -113,7 +167,7 @@ public class Factuur {
         // Factuurbedrag is 1000 euro of groter (hoog)
         return "Factuurbedrag is hoog";
     }
-    public String checkBetalingsKorting(double factuurBedrag, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant){
+    public String checkBetalingsKorting(double factuurBedrag, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant) {
         //    Factuurbedrag laag = 0 % korting
         //    Factuurbedrag middel = 3% korting
         //    Factuurbedrag hoog = 5% korting
@@ -126,41 +180,40 @@ public class Factuur {
         //    Betalingstermijn true = 5% korting
         //    Nieuwe klant = 4% korting
         //    Klant 65+ = 2% korting
-        if (factuurBedrag >= 0 && factuurBedrag <= 100 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant >= 65){
+        if (factuurBedrag >= 0 && factuurBedrag <= 100 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant >= 65) {
             return "11% betalingskorting";
         }
-        if (factuurBedrag >= 0 && factuurBedrag < 100 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant < 65){
+        if (factuurBedrag >= 0 && factuurBedrag < 100 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant < 65) {
             return "0% betalingskorting";
         }
-        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn == 14 && !nieuweKlant && leeftijdKlant < 65){
+        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn == 14 && !nieuweKlant && leeftijdKlant < 65) {
             return "8% betalingskorting";
         }
-        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn != 14 && nieuweKlant && leeftijdKlant >= 65){
+        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn != 14 && nieuweKlant && leeftijdKlant >= 65) {
             return "9% betalingskorting";
         }
-        if (factuurBedrag >= 1000 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant < 65){
+        if (factuurBedrag >= 1000 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant < 65) {
             return "14% betalingskorting";
         }
-        if (factuurBedrag >= 1000 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant >= 65){
+        if (factuurBedrag >= 1000 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant >= 65) {
             return "7% betalingskorting";
         }
         return "Geen betalingskorting";
     }
-
-    @Override
     public String toString() {
-        return  "factuurNummer = " + factuurNummer +
-                ", factuurOmschrijving = '" + factuurOmschrijving + '\'' +
-                ", factuurBedrag = " + factuurBedrag +
-                ", factuurDatum = '" + factuurDatum + '\'' +
-                ", debet = " + debet +
-                ", btwCode = " + btwCode +
-                ", btwBedrag = " + btwBedrag +
-                ", isBetaald = " + isBetaald +
-                ", betalingsTermijn = " + betalingsTermijn +
-                ", nieuweKlant = " + nieuweKlant +
-                ", leeftijdKlant = " + leeftijdKlant +
-                ", belastingType = '" + belastingType + '\'' +
+        return  '{' + "\n" +
+                "factuurNummer = " + factuurNummer + "\n" +
+                "factuurOmschrijving = " + factuurOmschrijving + "\n" +
+                "factuurBedrag = " + factuurBedrag + "\n" +
+                "factuurDatum = " + factuurDatum + "\n" +
+                "debet = " + debet + "\n" +
+                "btwCode = " + btwCode + "\n" +
+                "btwBedrag = " + btwBedrag + "\n" +
+                "isBetaald = " + isBetaald + "\n" +
+                "betalingsTermijn = " + betalingsTermijn + "\n" +
+                "nieuweKlant = " + nieuweKlant + "\n" +
+                "leeftijdKlant = " + leeftijdKlant + "\n" +
+                "belastingType = " + belastingType + "\n" +
                 '}';
     }
 }

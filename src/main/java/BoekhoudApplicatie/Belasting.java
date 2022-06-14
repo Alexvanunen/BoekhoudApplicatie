@@ -1,16 +1,16 @@
 package BoekhoudApplicatie;
 
 public class Belasting {
-    private static Belasting obj;
+    private static Belasting instance;
 
     private Belasting() {}
 
     public static Belasting getInstance()
     {
-        if(obj == null){
-            obj = new Belasting();
+        if(instance == null){
+            instance = new Belasting();
         }
-        return obj;
+        return instance;
     }
     public String getBelastingType(){
         return "OmzetBelasting";
