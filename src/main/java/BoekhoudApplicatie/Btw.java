@@ -38,4 +38,13 @@ public class Btw {
         }
         return btwBedrag;
     }
+    public boolean checkBedragExcl(double factuurBedrag, int btwCode, double btwBedrag, boolean isBetaald){
+        if(btwCode == 1 && (((factuurBedrag / 109) * 9 == btwBedrag) && isBetaald)) {
+            return true;
+        }
+        else if(btwCode == 2 && ((factuurBedrag / 121) * 21 == btwBedrag && isBetaald)) {
+            return true;
+        }
+        return false;
+    }
 }

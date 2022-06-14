@@ -12,20 +12,20 @@ public class WinstEnVerlies extends FacturenLijst {
     // Methode uit parent wordt ge-override
     @Override
     public void printOverzicht() {
-        int totaleWinst = 0;
-        int totaleVerlies = 0;
+        int totaleOpbrengst = 0;
+        int totaleUitgaven = 0;
         String periode = "";
         for(Factuur s: getFacturenLijst()){
             if(s.isDebet()){
-                totaleWinst += s.getFactuurBedrag();
+                totaleOpbrengst += s.getFactuurBedrag();
             }
             else if (!s.isDebet()) {
-                totaleVerlies += s.getFactuurBedrag();
+                totaleUitgaven += s.getFactuurBedrag();
             }
             periode = s.getFactuurDatum();
         }
         System.out.println("Periode: " + periode);
-        System.out.println(totaleWinst + " euro debet geboekt");
-        System.out.println(totaleVerlies + " euro credit geboekt");
+        System.out.println(totaleOpbrengst + " euro debet geboekt");
+        System.out.println(totaleUitgaven + " euro credit geboekt");
     }
 }

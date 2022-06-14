@@ -112,15 +112,7 @@ public class Factuur {
     public void setBelastingType(String belastingType) {
         this.belastingType = belastingType;
     }
-    public boolean checkBedragExcl(double factuurBedrag, int btwCode, double btwBedrag, boolean isBetaald){
-        if(btwCode == 1 && (((factuurBedrag / 109) * 9 == btwBedrag) && isBetaald)) {
-            return true;
-        }
-        else if(btwCode == 2 && ((factuurBedrag / 121) * 21 == btwBedrag && isBetaald)) {
-            return true;
-        }
-        return false;
-    }
+
     public String checkFactuurBedrag(){
         // Factuurbedrag is 0 tot 100 euro (laag)
         if (factuurBedrag == 0 || factuurBedrag > 0 && factuurBedrag < 100){
@@ -132,39 +124,6 @@ public class Factuur {
         }
         // Factuurbedrag is 1000 euro of groter (hoog)
         return "Factuurbedrag is hoog";
-    }
-    public String checkBetalingsKorting(double factuurBedrag, int betalingsTermijn, boolean nieuweKlant, int leeftijdKlant) {
-        //    Factuurbedrag laag = 0 % korting
-        //    Factuurbedrag middel = 3% korting
-        //    Factuurbedrag hoog = 5% korting
-        //    Betalingstermijn true = 5% korting
-        //    Nieuwe klant = 4% korting
-        //    Klant 65+ = 2% korting
-        //    Factuurbedrag laag = 0 % korting
-        //    Factuurbedrag middel = 3% korting
-        //    Factuurbedrag hoog = 5% korting
-        //    Betalingstermijn true = 5% korting
-        //    Nieuwe klant = 4% korting
-        //    Klant 65+ = 2% korting
-        if (factuurBedrag >= 0 && factuurBedrag <= 100 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant >= 65) {
-            return "11% betalingskorting";
-        }
-        if (factuurBedrag >= 0 && factuurBedrag < 100 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant < 65) {
-            return "0% betalingskorting";
-        }
-        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn == 14 && !nieuweKlant && leeftijdKlant < 65) {
-            return "8% betalingskorting";
-        }
-        if (factuurBedrag >= 100 && factuurBedrag < 1000 && betalingsTermijn != 14 && nieuweKlant && leeftijdKlant >= 65) {
-            return "9% betalingskorting";
-        }
-        if (factuurBedrag >= 1000 && betalingsTermijn == 14 && nieuweKlant && leeftijdKlant < 65) {
-            return "14% betalingskorting";
-        }
-        if (factuurBedrag >= 1000 && betalingsTermijn != 14 && !nieuweKlant && leeftijdKlant >= 65) {
-            return "7% betalingskorting";
-        }
-        return "Geen betalingskorting";
     }
     public String toString() {
         return  '{' + "\n" +
